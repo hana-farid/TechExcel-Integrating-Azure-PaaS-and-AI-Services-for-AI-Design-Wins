@@ -49,13 +49,16 @@ def main():
             if query:
                 # Vectorize the query text.
                 # Exercise 3 Task 3 TODO #4: Get the vectorized query text by calling handle_query_vectorization.
+                text = handle_query_vectorization(query)
                 
                 # Perform the vector search.
                 # Exercise 3 Task 3 TODO #5: Get the vector search results by calling handle_vector_search.
+                response = handle_vector_search(text, max_results, minimum_similarity_score)
                 
                 # Display the results.
                 st.write("## Results")
                 # Exercise 3 Task 3 TODO #6: Display the results as a table.
+                st.table(response.json())
                 
             else:
                 st.warning("Please enter a query.")
